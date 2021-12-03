@@ -22,9 +22,12 @@ LSRCS =	src/libft/ft_lastadd_front.c \
 		src/libft/ft_lstnew.c \
 		src/libft/ft_lstsize.c \
 		src/libft/ft_new_asslist.c \
-		src/libft/ft_strlen.c
+		src/libft/ft_strlen.c \
+		src/libft/ft_isint.c
 
-SRSC = src/pushswap/main.c
+
+SRSC =	src/pushswap/main.c \
+		src/pushswap/check_arg.c
 
 LOBJS:=	$(LSRCS:.c=.o)
 OBJS := $(SRSC:.c=.o)

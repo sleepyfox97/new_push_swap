@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -30,6 +31,7 @@ typedef struct s_ass
 }	t_ass;
 
 size_t		ft_strlen(const char *s);
+bool		ft_isint(char *str);
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
