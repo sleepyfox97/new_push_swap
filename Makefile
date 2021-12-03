@@ -23,14 +23,24 @@ LSRCS =	src/libft/ft_lastadd_front.c \
 		src/libft/ft_lstsize.c \
 		src/libft/ft_new_asslist.c \
 		src/libft/ft_strlen.c \
-		src/libft/ft_isint.c
+		src/libft/ft_isint.c \
+		src/libft/ft_strncmp.c
 
 
 SRSC =	src/pushswap/main.c \
-		src/pushswap/check_arg.c
+		src/pushswap/check_arg.c \
+		src/pushswap/ft_swap_a.c \
+		src/pushswap/ft_swap_b.c
 
 LOBJS:=	$(LSRCS:.c=.o)
 OBJS := $(SRSC:.c=.o)
+
+TEST =	src/pushswap/check_arg.c \
+		src/pushswap/ft_swap_a.c \
+		src/pushswap/ft_swap_b.c \
+		test.c
+
+TESTO := $(TEST:.c=.o)
 
 all : libft $(NAME)
 
@@ -38,7 +48,7 @@ $(NAME): $(OBJS)
 	$(CC) $(GCC_OPTIONS) $(OBJS) -I./include -o $(NAME) -L. -lft
 
 libft: $(LOBJS)
-	@ar -rcs libft.a $(LOBJS)
+	ar -rcs libft.a $(LOBJS)
 	@echo "\nFINISH Compiling libft.a!"
 	@echo "$(_YELLOW)Now, you can use archieve file of libft.a, by\"-L. -lft\"$(_END)"
 
@@ -48,13 +58,17 @@ clean:
 
 fclean:
 	@echo "$(_RED)Removing object files and program....$(_END)"
-	@rm	-f libft.a
+	@rm	-f libft.a $(NAME)
 	@rm -f $(LOBJS) $(OBJS)
 
 re: fclean all
 
+
+test: $(TESTO)
+	$(CC)  $(TESTO) -I./include -o test -L. -lft
+
 %.o: %.c $(HEADERPATH)
-	@$(CC) -c $(GCC_OPTIONS) -o $@ $< -I./include
+	$(CC) -c $(GCC_OPTIONS) -o $@ $< -I./include
 	@printf "$(_YELLOW)>$(_END)"
 
 

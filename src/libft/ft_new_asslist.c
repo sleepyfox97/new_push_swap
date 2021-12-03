@@ -1,6 +1,6 @@
 #include "libft.h"
 
-t_list	*ft_new_asslist(char *key, void	**value, t_list **lst)
+t_list	*ft_new_asslist(char *key, void	*value, t_list **lst)
 {
 	t_list	*new;
 	t_ass	*content;
@@ -19,3 +19,14 @@ t_list	*ft_new_asslist(char *key, void	**value, t_list **lst)
 	ft_lstadd_back(lst, new);
 	return (*lst);
 }
+
+char	*ft_get_key(t_list *lst)
+{
+	t_ass *content;
+
+	if (lst == NULL)
+		return NULL;
+	content = (t_ass*)lst->content;
+	return (content->key);
+}
+
