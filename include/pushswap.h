@@ -7,8 +7,13 @@
 # include "libft.h"
 
 bool	ft_check_arg(int argc, char **argv);
-t_list	*ft_swap_a(t_list *a, t_list *b);
-t_list	*ft_swap_b(t_list *a, t_list *b);
-
+void	ft_swap_a(t_list **a, t_list **b);
+void	ft_swap_b(t_list **a, t_list **b);
+void	ft_push_a(t_list **a, t_list **b);
+void	ft_push_b(t_list **a, t_list **b);
+void	ft_rotate_a(t_list **a, t_list **b);
+void	ft_rotate_b(t_list **a, t_list **b);
+void	ft_rev_rotate_b(t_list **a, t_list **b);
+void	ft_rev_rotate_a(t_list **a, t_list **b);
 
 #endif
