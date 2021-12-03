@@ -8,7 +8,7 @@ bool	ft_isint(char *str)
 	num = 0;
 	minus = 1;
 	if (ft_strlen(str) > 11)
-		return false;
+		return (false);
 	if (*str == '+' || *str == '-')
 	{
 		if (*str++ == '-')
@@ -17,6 +17,8 @@ bool	ft_isint(char *str)
 	while ('0' <= *str && *str <= '9')
 		num = ((*str++) - '0') + num * 10;
 	num = num * minus;
+	if ((*str < '0' || '9' < *str) && *str != '\0')
+		return (false);
 	if (num < INT_MIN || INT_MAX < num)
 		return (false);
 	else
