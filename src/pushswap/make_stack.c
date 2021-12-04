@@ -1,7 +1,7 @@
 #include "pushswap.h"
 #include <stdio.h>
 
-t_list	*ft_new_stack(unsigned int key, int value, t_list **lst)
+t_list	*ft_set_stack_value(unsigned int key, int value, t_list **lst)
 {
 	t_list	*new;
 	t_stack	*content;
@@ -30,7 +30,7 @@ t_list	*ft_make_stack(int argc, char **argv)
 	stack = NULL;
 	while (i < argc)
 	{
-		stack = ft_new_stack(0, ft_atoi(argv[i]), &stack);
+		stack = ft_set_stack_value(0, ft_atoi(argv[i]), &stack);
 		if (stack == NULL)
 		{
 			//freeする

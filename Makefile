@@ -37,7 +37,9 @@ SRSC =	src/pushswap/main.c \
 		src/pushswap/ft_rotate_b.c \
 		src/pushswap/ft_riverse_rotate_a.c \
 		src/pushswap/ft_riverse_rotate_b.c \
-		src/pushswap/make_stack.c
+		src/pushswap/make_stack.c \
+		src/pushswap/coordinate_compression.c \
+		src/pushswap/ass_list_utils.c 
 
 LOBJS:=	$(LSRCS:.c=.o)
 OBJS := $(SRSC:.c=.o)
@@ -59,7 +61,9 @@ TESTO := $(TEST:.c=.o)
 all : libft $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) -g -fsanitize=address $(GCC_OPTIONS) $(OBJS) -I./include -o $(NAME) -L. -lft
+	$(CC)  $(GCC_OPTIONS) $(OBJS) -I./include -o $(NAME) -L. -lft
+
+#-g -fsanitize=address
 
 libft: $(LOBJS)
 	ar -rcs libft.a $(LOBJS)
@@ -68,11 +72,11 @@ libft: $(LOBJS)
 
 clean:
 	@echo "Removing object files...."
-	@rm -f $(LOBJS) $(OBJS)
+	@rm -f $(LOBJS) $(OBJS) $(TESTO)
 
 fclean:
 	@echo "$(_RED)Removing object files and program....$(_END)"
-	@rm	-f libft.a $(NAME)
+	@rm	-f libft.a $(NAME) test
 	@rm -f $(LOBJS) $(OBJS)
 
 re: fclean all

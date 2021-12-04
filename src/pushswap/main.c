@@ -30,6 +30,13 @@ int main(int argc, char **argv)
 	}
 	a = ft_make_stack(argc, argv);
 	ft_show_stack_content(a);
-	
+	//keyにindexを小さい順に格納して，座標圧縮を行う
+	ft_coordinate_compression(a, (unsigned int)(argc));
+
+	printf("=========\n");
+	ft_show_stack_content(a);
+	//push swap関数の実装
+	//resultをlist形式で手に入れて，さらに最適化をかける
+	//出力
 	return (0);
 }
