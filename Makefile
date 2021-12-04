@@ -24,13 +24,20 @@ LSRCS =	src/libft/ft_lastadd_front.c \
 		src/libft/ft_new_asslist.c \
 		src/libft/ft_strlen.c \
 		src/libft/ft_isint.c \
-		src/libft/ft_strncmp.c
-
+		src/libft/ft_strncmp.c \
+		src/libft/ft_atoi.c
 
 SRSC =	src/pushswap/main.c \
 		src/pushswap/check_arg.c \
 		src/pushswap/ft_swap_a.c \
-		src/pushswap/ft_swap_b.c
+		src/pushswap/ft_swap_b.c \
+		src/pushswap/ft_push_a.c \
+		src/pushswap/ft_push_b.c \
+		src/pushswap/ft_rotate_a.c \
+		src/pushswap/ft_rotate_b.c \
+		src/pushswap/ft_riverse_rotate_a.c \
+		src/pushswap/ft_riverse_rotate_b.c \
+		src/pushswap/make_stack.c
 
 LOBJS:=	$(LSRCS:.c=.o)
 OBJS := $(SRSC:.c=.o)
@@ -38,6 +45,13 @@ OBJS := $(SRSC:.c=.o)
 TEST =	src/pushswap/check_arg.c \
 		src/pushswap/ft_swap_a.c \
 		src/pushswap/ft_swap_b.c \
+		src/pushswap/ft_push_a.c \
+		src/pushswap/ft_push_b.c \
+		src/pushswap/ft_rotate_a.c \
+		src/pushswap/ft_rotate_b.c \
+		src/pushswap/ft_riverse_rotate_a.c \
+		src/pushswap/ft_riverse_rotate_b.c \
+		src/pushswap/make_stack.c \
 		test.c
 
 TESTO := $(TEST:.c=.o)
@@ -45,7 +59,7 @@ TESTO := $(TEST:.c=.o)
 all : libft $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(GCC_OPTIONS) $(OBJS) -I./include -o $(NAME) -L. -lft
+	$(CC) -g -fsanitize=address $(GCC_OPTIONS) $(OBJS) -I./include -o $(NAME) -L. -lft
 
 libft: $(LOBJS)
 	ar -rcs libft.a $(LOBJS)

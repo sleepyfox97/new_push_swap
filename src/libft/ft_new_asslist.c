@@ -29,4 +29,3 @@ char	*ft_get_key(t_list *lst)
 	content = (t_ass*)lst->content;
 	return (content->key);
 }
-

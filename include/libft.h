@@ -22,17 +22,18 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}	t_list;
+}			t_list;
 
 typedef struct s_ass
 {
 	char	*key;
 	void	*value;
-}	t_ass;
+}			t_ass;
 
 size_t		ft_strlen(const char *s);
 bool		ft_isint(char *str);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_atoi(const char *str);
 
 t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
@@ -43,7 +44,6 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list	**lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
 
 t_list		*ft_new_asslist(char *key, void	*value, t_list **lst);
 char		*ft_get_key(t_list *lst);
